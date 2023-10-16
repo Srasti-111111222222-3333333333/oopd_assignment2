@@ -244,7 +244,137 @@ class member{
 
 
 
-   
+    void member :: Borrow_MJ(string name)
+    {
+        int f = 0;
+        for(int i=0;i<size_of_b;i++)
+        {
+            if(B_magJ[i] == name)
+            {
+                cout<<"Item borrowed not available!!! ";
+                f = 1;
+                break;
+            }  
+        }
+        
+        if(f == 1)
+        {
+            ++size_of_b;
+            B_magJ[size_of_mj] = name;
+        }
+
+     ++size_of_mj;  
+       cout<<"Item with id:"<<B_item[size_of_b]<<"is issued..";
+
+    }
+
+
+
+
+    void member :: Borrow_b(int book_id)
+    {
+        int f = 0;
+        for(int i=0;i<size_of_b;i++)
+        {
+            if(B_item[i] == book_id)
+            {
+                cout<<"Book borrowed and is not available right now";
+                f = 1;
+                break;
+            }  
+        }
+        
+        if(f == 1)
+        {
+            ++size_of_b;
+            B_item[size_of_b] = book_id;
+        }
+
+       ++size_of_b;
+       cout<<"Item with id:"<<B_item[size_of_b]<<"is issued sucessfully";
+
+    }
+
+     void member :: Location_J(string name)
+    {
+        int y=0;
+        for(int i=0;i<99;i++)
+        {
+            if(J[i].name_of_item == name)
+            {
+            y=i;
+            break;
+            }
+        }
+        cout<<"shelf no.: "<<3<<"\n";
+            cout<<"row: "<<y+1;
+            auto now = chrono::system_clock::now();
+            auto nowTimeT = chrono::system_clock::to_time_t(now);
+            time_j[y] = ctime(&nowTimeT);
+            cout<<"\nTime: "<<time_j[y]<<endl;
+    }
+
+    void member :: Location_b(int id, string author, int ISBN)
+    {
+        int ch=0;
+
+       for(int i=0;i<100;i++)
+       {
+            if(Book[i].id == id && Book[i].author == author && Book[i].ISBN == ISBN)
+            {   
+                ch = i;
+                break;
+                
+            }
+        } 
+        cout<<"shelf no.: "<<1<<"\n";
+                cout<<"row: "<<ch+1;
+
+                auto now = chrono::system_clock::now();
+                auto nowTimeT = chrono::system_clock::to_time_t(now);
+                time_b[ch] = ctime(&nowTimeT);
+                cout<<"\nTime: "<<time_b[ch];     
+       
+    }
+
+
+
+    void member :: Location_M(string name, string mag_rank)
+    {
+        int x=0;
+        for(int i=0;i<81;i++)
+        {
+            if(mag[i].name_of_item == name && mag[i].rank == mag_rank)
+            {
+                x=i;
+            break;
+
+            }
+        }
+        cout<<"shelf no.: "<<2<<"\n";
+            cout<<"row: "<<x+1;
+            auto now = chrono::system_clock::now();
+            auto nowTimeT = chrono::system_clock::to_time_t(now);
+            time_m[x] = ctime(&nowTimeT);
+            cout<<"\nTime: "<<time_m[x];
+    }
+
+
+
+    Borrow_loan Borrow[100];
+void  member :: b_on_loan()
+{
+
+            cout<<"\nEnter the library number:";
+            cin>>Borrow[n].b_loc;
+            cout<<"\nEnter the item id:";
+            cin>>Borrow[n].id;
+            cout<<"\nEnter request date for issue of book:";
+            cin>>Borrow[n].r_date;
+            cout<<"\nIt will take 7 days to process the request.\n";
+            n++;
+
+}
 void member :: Bloan_loc()
 {
     int ch,id;
