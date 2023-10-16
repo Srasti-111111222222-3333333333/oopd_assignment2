@@ -336,7 +336,65 @@ class member{
 
 
 
-    
+    void member :: Location_M(string name, string mag_rank)
+    {
+        int x=0;
+        for(int i=0;i<81;i++)
+        {
+            if(mag[i].name_of_item == name && mag[i].rank == mag_rank)
+            {
+                x=i;
+            break;
+
+            }
+        }
+        cout<<"shelf no.: "<<2<<"\n";
+            cout<<"row: "<<x+1;
+            auto now = chrono::system_clock::now();
+            auto nowTimeT = chrono::system_clock::to_time_t(now);
+            time_m[x] = ctime(&nowTimeT);
+            cout<<"\nTime: "<<time_m[x];
+    }
+class Librarian
+{
+
+    private:
+    int copies, ISBN;
+    string name_of_item, author;
+    public:
+  
+
+    void purchase_books()
+    {
+
+
+            cout<<"Name of new book: ";
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            getline(cin, name_of_item);
+            cout<<"Name of author: ";
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            getline(cin, author);
+            cout<<"ISBN no.: ";
+            cin>>ISBN;
+            cout<<"\ncopies:";
+            cin>>copies;
+            for(int i=0;i<100;i++)
+            {
+                if(Book[i].author == author && Book[i].ISBN == ISBN)
+                {
+                    cout<<"Book details already present";
+                    Book[i].books_count += copies;
+                }
+            
+            }
+
+            cout<<"\nBooks with "<<copies<<" copies purchased successfully\n";
+    } 
+
+
+
+};
+
 
 int main()
 {
